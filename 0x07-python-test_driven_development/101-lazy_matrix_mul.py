@@ -6,8 +6,8 @@ import numpy as np
 def lazy_matrix_mul(m_a, m_b):
     """Return the multiplication of two matrices.
     Args:
-        mtx_a (list of lists of ints/floats): The first matrix.
-        mtx_b (list of lists of ints/floats): The second matrix.
+        m_a (list of lists of ints/floats): The first matrix.
+        m_b (list of lists of ints/floats): The second matrix.
     """
 
-    return (np.matmul(mtx_a, mtx_b))
+    return (np.matmul(m_a, m_b))

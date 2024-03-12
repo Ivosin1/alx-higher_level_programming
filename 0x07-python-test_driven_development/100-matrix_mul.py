@@ -54,29 +54,29 @@ def get_matrix_sizes(matrix_1, matrix_2, name_1, name_2):
     return size_0, size_1
 
 
-def matrix_mul(mtx_a, mtx_b):
+def matrix_mul(matrix_a, matrix_b):
     '''Multiplies 2 matrices.
     Args:
-        mtx_a (list): First matrix.
-        mtx_b (list): Second matrix.
+        matrix_a (list): First matrix.
+        matrix_b (list): Second matrix.
     Returns:
         list: A list of lists of the products of the two given matrices.
     Raises:
-        ValueError: If mtx_a's column count isn't equal to
-        mtx_b's row count.
+        ValueError: If matrix_a's column count isn't equal to
+        matrix_b's row count.
     '''
-    size_a, size_b = get_matrix_sizes(mtx_a,
-                                      mtx_b, 'mtx_a', 'mtx_b')
+    size_a, size_b = get_matrix_sizes(matrix_a,
+                                      matrix_b, 'matrix_a', 'matrix_b')
     # A x B only works if column_count in A == row_count in B
     if size_a[1] != size_b[0]:
-        raise ValueError('mtx_a and mtx_b can\'t be multiplied')
+        raise ValueError('matrix_a and matrix_b can\'t be multiplied')
     else:
         res = []
-        for row_a in mtx_a:
+        for row_a in matrix_a:
             row_res = []
             for i in range(size_b[1]):
                 cell_args = zip(range(size_a[1]), row_a)
-                val = map(lambda x: x[1] * mtx_b[x[0]][i], cell_args)
+                val = map(lambda x: x[1] * matrix_b[x[0]][i], cell_args)
                 row_res.append(sum(list(val)))
             res.append(row_res)
         return res
